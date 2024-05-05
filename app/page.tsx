@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 
 const gameInitialState = ["", "", "", "", "", "", "", "", ""];
+type Players='X' |'O'
 
 export default function Home() {
   const [game_shell, setGame_shell] = useState(gameInitialState);
-  const [person, setPerson] = useState<string>("X");
+  const [person, setPerson] = useState<Players>("X");
   const [isWon, setIsWon] = useState<boolean>(false);
 
   useEffect(() => {
@@ -45,7 +46,6 @@ export default function Home() {
     if (game_shell[index]) {
       return;
     }
-    console.log(index);
     const newState = [...game_shell];
 
     if (person === "X") {
